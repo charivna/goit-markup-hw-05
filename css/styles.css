@@ -303,7 +303,7 @@ align-items: center;
         gap: 24px;
 }
 
-.item{
+.item-list .item{
     flex-basis: calc((100% - 48px)/3);
 }
 
