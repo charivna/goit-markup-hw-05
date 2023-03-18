@@ -65,11 +65,8 @@ body{
     font-size: 16px;
     line-height: 1.5;
     text-decoration: none;
+transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    transition-property: color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    
     position: relative;
    
 }
@@ -109,10 +106,8 @@ gap: 20px;
     text-decoration: none;
     font-style: normal;
     padding: 24px 0;
-    display: block;
-    transition-property: color;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    display: block; 
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .site-contacts .link:hover,
 .site-contacts .link:focus 
@@ -270,11 +265,8 @@ margin-bottom: 0;
     min-width: 169px;
     text-align: center;
     border: none;
-
-    transition-property: background-color;
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
+transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
+  
 }
 .button-hero:hover,
 .button-hero:focus{
@@ -304,10 +296,8 @@ background-color:var(--accent-color);
     border-radius: 4px;
     padding: 12px 24px;
     text-align: center;
+   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
    
-    transition-property: box-shadow, color, background-color;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter{
@@ -343,40 +333,30 @@ background-color:var(--accent-color);
     overflow: hidden;
     
 }
-.product-thumb::before{
-    content:"";
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    background-color: var(--logo-web-color);
-    position: absolute;
-   
-    transform: translateY(100%);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
+
 
 
 .text-overlay
-{
-    width: 296px;
-    height: 96px;
-    color: #F4F4FD;
+{width: 100%;
+    height: 100%;
+    color: var(--buttons-background-color);
+    background-color: var(--logo-web-color);
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: 0.02em;
     position: absolute;
-    top:40px;
-    left:32px;
-  
-    transform: translateY(320%);
+    overflow-y: auto;
+    padding: 40px 32px;
+    top:0;
+    left:0;
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transform:translateY(100%)
 }
 .item-list .item:hover .text-overlay{
-    transform: translateY(0%);
+    transform: translateY(0);
 }
-.item-list .item:hover .product-thumb::before{
-    transform: translateY(0%);
-}
+    
+
 
 
 .border{
@@ -440,9 +420,8 @@ margin-bottom: 8px;
     width: 40px;
     height: 40px;
     display: block;
-    transition-property: background-color;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+   
 
 }
 .social-link:hover,
@@ -475,9 +454,7 @@ margin-bottom: 8px;
     color:var(--client-border);
     border: 1px solid var(--client-border);
     border-radius: 4px;
-        transition-property: color, border;
-            transition-duration: 250ms;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
 
@@ -530,9 +507,8 @@ height: 80px;
     height: 100%;
 background-color:rgba(255, 255, 255, 0.1);
     border-radius: 50%;
-    transition-property: background-color;
-        transition-duration: 250ms;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    
     }
 
         .footer-link:hover,
@@ -550,24 +526,30 @@ background-color:rgba(255, 255, 255, 0.1);
             width: 100%;
             height: 100%;
             background-color: rgba(46, 47, 66, 0.4);
-            transition-duration: 250ms;
-                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1)
+            transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+          
         }
         .backdrop.is-hidden{
             opacity: 0;
             pointer-events: none;
+            visibility: hidden;
+        }
+        .backdrop.is-hidden .modal{
+            transform: translate(-50%, -50%) scale(1.2);
         }
        .modal{
         display: flex;
         position: absolute;
-        min-width: 408px;
+        max-width: 408px;
+        width: 100%;
         min-height: 576px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background-color: #fff;
+        background-color: var(--white-color);
         box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
         border-radius: 4px;
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
        }
        .close-button{
         display: flex;
